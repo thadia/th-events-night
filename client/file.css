@@ -1,0 +1,85 @@
+body{
+   font-family: arial;
+   background-color: black;
+   padding-top: 2%;
+}
+
+table{
+ 
+}  
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.header_main {
+  color:#FFFFFF;
+  font-weight: bold;
+   
+}
+
+#signin {
+  padding-left: 3px;
+  color:#FFFFFF;
+}
+
+#logout {
+  padding-left: 3px;
+}
+
+#location_label{
+   color:#ECEEEF; 
+}  
+
+#t_header{
+   color:#F0AD4E;
+}   
+
+.cell_title {
+  font-weight: bold;
+  color:#d9534f;
+  white-space: normal;
+}
+
+.add-poll{
+  font-weight: bold;
+  color:#269826;
+  font-family: fantasy;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 10px;
+  white-space: normal;
+  width: inherit;
+   background-color: #f5f5f5;
+
+}
+
+
+.end-label{
+  font-weight: bold;
+  color:#269826;
+  font-family: fantasy;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 5px;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 5px;
+  white-space: normal;
+  width: inherit;
+  background-color: #f5f5f5;
+
+}
+
+td, tr{
+  white-space: normal;
+}
+  

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+     <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+     <link rel="stylesheet" href="/client/file.css">
+     <title>Night Out App</title>
+
+</head>
+
+<body ng-app="myApp">
+<div class="container container-fluid" ng-controller="mainController" >
+   
+       <form class="form-inline">
+              <label class="control-label" for="header_title"><h1 class="header_main" ng-cloak>Bars & Pubs</h1></label>
+              <div><label id="location_label" class="control-label" for="header_title"><h3 ng-cloak>{{city}}</h3></label><div>
+       </form>     
+      <br/><br/>
+      
+       <button type="button" class="btn btn-secondary btn-sm" ng-click="searchMyLocation()" ng-cloak>Search</button> 
+       <button id="logout" type="button" class="btn btn-default btn-sm" ng-hide="userdata.username == undefined" ng-click="logout()" ng-cloak>Logout: {{userdata.username}}</button>
+
+
+     <br/><br/>
+
+      <div >
+         
+         <table class="table table-sm table-inverse table-responsive" >
+              
+              <tbody>
+                <tr id="t_header">
+                  <td> # </td>
+                  <td> Bar Name </td>
+                  <td> Rating </td>
+                  <td> People Going </td>
+                  <td colspan="2" > RSVP </td>
+
+                </tr>
+                  
+                <tr ng-repeat="bar in allBars.businesses" ng-model="poll" ng-cloak>
+                  <td>  <img ng-src="{{bar.image_url}}"/>  </td>
+                  <td>
+                      <div>{{bar.name}}</div>  
+                      <div>{{bar.snippet_text}}</div>
+                  </td> 
+                  <td>{{ bar.rating }}</td>
+                  <td>{{ getPeopleList(bar.name).length }}</td>
+                  <td> <button type="button" class="btn btn-warning btn-sm" ng-hide="getPeopleList(bar.name).lastIndexOf(userdata.username) != -1" ng-click="going(bar.name,userdata.username)" ng-cloak>Going</button></td>
+                  <td> <button type="button" class="btn btn-secondary btn-sm" ng-hide="getPeopleList(bar.name).lastIndexOf(userdata.username) <= -1" ng-click="not_going(bar.name,userdata.username)" ng-cloak>Not Going</button></td>
+                </tr>
+               
+              </tbody>
+            </table>
+
+       </div>
+ 
+    
+</div>
+
+</body>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/client/client.js"></script>
+    
+</html>
+
